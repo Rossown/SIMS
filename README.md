@@ -5,15 +5,15 @@
 Mikayla Quaderer
 
 ## Team Members:
-Nathan Rossow
-Erin Day
-Caleb Trayer
+Nathan Rossow <br />
+Erin Day <br />
+Caleb Trayer <br />
 
 ## Technologies
-Python 3.6
-Flask 1.0.2
-Bootstrap
-Some cool Database stuff 
+Python 3.6 <br />
+Flask 1.0.2 <br />
+Bootstrap <br />
+Some cool Database stuff <br />
 
 ## Getting Started
 First download python. If already installed like most normal people that is perfect. <br />
