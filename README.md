@@ -16,8 +16,8 @@ Bootstrap <br />
 Some cool Database stuff <br />
 
 ## Getting Started
-First download python. If already installed like most normal people that is perfect. <br />
-Second, download pip by saving this file and running it using "py get-pip.py" https://bootstrap.pypa.io/get-pip.py <br />
-Third, run "py -m pip" to ensure that pip was installed. <br />
-Fourth, run the command "py -m pip install Flask==1.0.2" to install flask <br />
-Fifth, clone the repository. <br />
+1. Download python. If already installed like most normal people that is perfect. <br />
+2. Download pip by saving this file and running it using "py get-pip.py" https://bootstrap.pypa.io/get-pip.py <br />
+3. Run "py -m pip" to ensure that pip was installed. <br />
+4. Run the command "py -m pip install Flask==1.0.2" to install flask <br />
+5. Clone the repository. <br />
