@@ -1,49 +1,60 @@
 <!doctype html>
-<html lang="en">
+<html>
 
 <head>
-    <title>Basic Flask App</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<title>SIMS</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#">SIMS</a>
-          </div>
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Page 1</a></li>
-            <li><a href="#">Page 2</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-          </ul>
-        </div>
-      </nav>
-
-    <div class="container">
-        <div class="jumbotron">
-            Welcome to your Simple Inventory Management System or SIMS
-        </div>
-    </div>
-    <div class="container">
-        <div class="col-md">
-            {% if name %}
-            <h1>Hello {{ name }}!</h1>
-            {% else %}
-            <h1>Hello, World!</h1>
-            {% endif %}
-        </div>
-    </div>
-
+	<h1>
+		SIMS (Simple Inventory Management System)
+	</h1>
+	<button id="normalbutton" type="button">Print Report</button>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Price</th>
+			<th>Weight</th>
+			<th>Color</th>
+			<th>Quantity</th>
+			<th>Change Amount</th>
+			<th>Delete</th>
+		</tr>
+		<tr>
+			<td>Item A</td>
+			<td>$2.00</td>
+			<td>32.5 lbs</td>
+			<td>Red</td>
+			<td>345</td>
+			<td>_____</td>
+			<td><input type="image" src="https://openclipart.org/download/226230/trash.svg" alt="Delete" width="20px" height="25px" id="deletebutton"></td>
+		</tr>
+		<tr>
+			<td>Item B</td>
+			<td>$6.00</td>
+			<td>2.5 lbs</td>
+			<td>Blue</td>
+			<td>525</td>
+			<td>_____</td>
+			<td><input type="image" src="https://openclipart.org/download/226230/trash.svg" alt="Delete" width="20px" height="25px" id="deletebutton"></td>
+		</tr>
+		<tr>
+			<td>Item C</td>
+			<td>$5.60</td>
+			<td>24.5 lbs</td>
+			<td>Green</td>
+			<td>63</td>
+			<td>_____</td>
+			<td><input type="image" src="https://openclipart.org/download/226230/trash.svg" alt="Delete" width="20px" height="25px" id="deletebutton">
+</td>
+		</tr>
+	</table>
+	<button id="normalbutton" type="button">Add Item</button>
+	<footer>
+  <p>Created by: Nathan Rossow | Caleb Trayer | Erin Day | Mikayla Quaderer</p>
+</footer>
 </body>
 
-
 </html>
+
+<!-- color scheme: #c8c3cc, #563f46, #8ca3a3, #484f4f -->
