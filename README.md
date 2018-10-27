@@ -2,10 +2,10 @@
 ## Simple Inventory Management System
 
 ## Project Manager:    
-Mikayla Quaderer
+Nathan Rossow
 
 ## Team Members:
-Nathan Rossow <br />
+MIkayla Quaderer <br />
 Erin Day <br />
 Caleb Trayer <br />
 
