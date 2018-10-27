@@ -19,29 +19,29 @@
 				<th>Weight</th>
 				<th>Color</th>
 				<th>Quantity</th>
+				<th>Remove</th>
 			</tr>
 		</thead>
 		<tbody>
 			{% for item in item_list %}
 			<tr>
 				<td>
-					<a href="/user/{{item.name}}">
-					{{item.name}}
-				</a>
+					<a href="/user/{{item.name}}">{{item.name}}</a>
 				</td>
 				<td>{{item.price}}</td>
 				<td>{{item.weight}}</td>
 				<td>{{item.color}}</td>
 				<td>{{item.quantity}}</td>
+				<td><a href="/delete/{{item.name}}">Delete</a></td>
 			</tr>
 			{% endfor %}
 		</tbody>
 		</tr>
 	</table>
-	<button id="normalbutton" type="button">Add Item</button>
+	<button id="normalbutton" type="button" onclick="location.href='/add';" >Add Item</button>
 	<footer>
-  <p>Created by: Nathan Rossow | Caleb Trayer | Erin Day | Mikayla Quaderer</p>
-</footer>
+		<p>Created by: Nathan Rossow | Caleb Trayer | Erin Day | Mikayla Quaderer</p>
+	</footer>
 </body>
 
 </html>
