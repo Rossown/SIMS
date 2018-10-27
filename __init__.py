@@ -1,10 +1,11 @@
 import os
-from flask import Flask
-from flask import render_template
+from flask import Flask, render_template, session, request, redirect
+from pprint import pprint
 
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
+    app.secret_key = 'dsfdsaf'
 
     # app.config.from_mapping(SECRET_KEY='dev', DATABASE="")
 
@@ -22,15 +23,44 @@ def create_app(test_config=None):
         pass
 
     @app.route('/')
-    def hello():
-        items = [
-            {"name":"Item A", "price":2.0, "weight":32.5, "color":"red", "quantity":345},
-            {"name":"Item B", "price":6.0, "weight":2.5, "color":"blue", "quantity":525},
-            {"name":"Item C", "price":5.60, "weight":24.5, "color":"green", "quantity":63},
+    def index():
+        if 'items' not in session.keys() or session['items'] == None:
+            print("reset items")
+            session['items'] = [
+                {"name":"Item A", "price":2.0, "weight":32.5, "color":"red", "quantity":345},
+                {"name":"Item B", "price":6.0, "weight":2.5, "color":"blue", "quantity":525},
+                {"name":"Item C", "price":5.60, "weight":24.5, "color":"green", "quantity":63},
             
-        ]
-        return render_template('index.html', item_list = items)
+            ]
+        session.modified = True
+        return render_template('index.html', item_list = session['items'])
 
+    @app.route("/add", methods = ['GET', 'POST'])
+    def add():
+        if request.method == 'POST':
+            dic = {
+                "name":request.form["name"],
+                "price":request.form["price"],
+                "weight":request.form["weight"],
+                "color":request.form["color"],
+                "quantity":request.form["quantity"],
+            }
+            session['items'].append(dic)
+            pprint(session['items'])
+            session.modified = True
+            return redirect('/')
+        return render_template('Form.html')
+
+    @app.route("/delete/<itemname>")
+    def delete(itemname):
+        for i in range(len(session['items'])):
+            if(session['items'][i]['name'] == itemname):
+                del session['items'][i]
+                break
+        session.modified = True
+        return redirect('/')
+
+    
     return app
    
 
