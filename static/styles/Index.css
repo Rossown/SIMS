@@ -1,0 +1,63 @@
+body {
+	background-color: white;	
+	color: #c8c3cc;
+	font-size: 16px;
+}
+
+h1 {
+	color: #454d65;
+	font-family: Tahoma, Times New Roman;
+	font-weight: 45;
+	font-size: 30px;
+}
+
+#normalbutton {
+	background-color: #667292;
+	border: 2px solid #667292;
+	text-align: center;
+	padding: 8px 12px;
+	font-size: 12px;
+	display: inline-block;
+	border-radius: 4px;
+	-webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+	color: black;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+#normalbutton:hover {
+	background-color: white;
+  color: black;
+}
+
+table {
+	border: 1px solid black;
+	border-collapse: collapse;
+	width: 50%;
+	margin: 10px 0px 10px 0px;
+}
+
+th, td {
+	border: 1px solid black;
+	height: 30px;
+	text-align: center;
+}
+
+th {
+	background-color: #667292;
+	color: white;
+}
+
+td {
+	background-color: #bccad6;
+	color: black;
+}
+
+#deletebutton {
+	margin-top: 10px;
+}
+
+footer {
+	color: #667292;
+}
