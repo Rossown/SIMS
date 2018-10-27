@@ -23,7 +23,13 @@ def create_app(test_config=None):
 
     @app.route('/')
     def hello():
-        return render_template('index.html')
+        items = [
+            {"name":"Item A", "price":2.0, "weight":32.5, "color":"red", "quantity":345},
+            {"name":"Item B", "price":6.0, "weight":2.5, "color":"blue", "quantity":525},
+            {"name":"Item C", "price":5.60, "weight":24.5, "color":"green", "quantity":63},
+            
+        ]
+        return render_template('index.html', item_list = items)
 
     return app
    
