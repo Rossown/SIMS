@@ -2,10 +2,12 @@ import os
 from flask import Flask, render_template, session, request, redirect
 from pprint import pprint
 
+from item import item
+from database import database
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
-    app.secret_key = 'dsfdsaf'
+    app.secret_key = '🍏'
 
     # app.config.from_mapping(SECRET_KEY='dev', DATABASE="")
 
