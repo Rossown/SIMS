@@ -16,8 +16,10 @@ def save(filename, list, password):
     with open("csv/"+filename+".csv", "w+") as file:
         file.write(password+"\n")
         for item in list:
-            file.write(format("%s,%s,%s,%s,%s\n"%(item["name"],
-                                                item["price"],
-                                                item["weight"],
-                                                item["color"],
-                                                item["quantity"])))
+            file.write(format("%s,%s,%s,%s,%s\n"%(
+                item["name"],
+                item["price"],
+                item["weight"],
+                item["color"],
+                item["quantity"]
+            )))
