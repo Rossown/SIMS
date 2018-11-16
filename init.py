@@ -40,6 +40,8 @@ def create_app(test_config=None):
                 session['name'] = request.form['name']
                 session['password'] = request.form['password']
                 session['items'] = database.load(session['name'], session['password'])
+                if session['items'] == False:
+                    session['items'] = []
                 session.modified = True
                 return redirect('/')
             return redirect('/login')

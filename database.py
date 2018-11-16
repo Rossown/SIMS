@@ -2,24 +2,25 @@ import os
 
 def load(filename, password):
     itemList = []
-    if not os.path.exists("csv/"+filename+".csv"):
+    if not os.path.exists("csv"):
         return False
     with open("csv/"+filename+".csv", "r") as file:
         next(file)
         for line in file:
             line2 = line.split(",")
             itemList.append({
-                "name":line2[0],
-                "price":line2[1],
-                "weight":line2[2],
-                "color":line2[3],
-                "quantity":line2[4]
+                "id":line2[0],
+                "name":line2[1],
+                "price":line2[2],
+                "weight":line2[3],
+                "color":line2[4],
+                "quantity":line2[5]
             })
     return itemList
 
 def save(filename, list, password):
-    if not os.path.exists("csv/"+filename+".csv"):
-        os.makedirs("csv/"+filename+".csv")
+    if not os.path.exists("csv"):
+        os.makedirs("csv")
     with open("csv/"+filename+".csv", "w+") as file:
         file.write(password+"\n")
         for item in list:
