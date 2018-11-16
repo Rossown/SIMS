@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>SIMS</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/Index.css') }}">
+
+</head>
+
+<body>
+	<h1>
+		SIMS (Simple Inventory Management System)
+	</h1>
+</body>
+  <form method="POST" action="">
+    Name: <input type="text" name="name" value={{item.name}}><br>
+    Price: <input type="text" name="price" value={{item.price}}><br>
+    Weight: <input type="text" name="weight" value={{item.weight}}><br>
+    Color: <input type="text" name="color" value={{item.color}}><br>
+    Quantity: <input type="text" name="quantity" value={{item.quantity}}><br>
+    <button id="normalbutton" type="submit">submit</button>
+  </form>
+
+  <button id="normalbutton" onclick="self.close()">Close</button>
+  
+</html>
+
+<!-- color scheme: #c8c3cc, #563f46, #8ca3a3, #484f4f -->

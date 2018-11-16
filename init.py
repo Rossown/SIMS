@@ -2,12 +2,11 @@ import os
 from flask import Flask, render_template, session, request, redirect
 from pprint import pprint
 
-from item import item
-from database import database
+import database
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
-    app.secret_key = '🍏'
+    app.secret_key = 'key'
 
     # app.config.from_mapping(SECRET_KEY='dev', DATABASE="")
 
@@ -26,19 +25,32 @@ def create_app(test_config=None):
 
     @app.route('/')
     def index():
+        if 'name' not in session.keys() or 'password' not in session.keys():
+            return redirect("/login")
         if 'items' not in session.keys() or session['items'] == None:
             print("reset items")
             session['items'] = [
-                {"name":"Item A", "price":2.0, "weight":32.5, "color":"red", "quantity":345},
-                {"name":"Item B", "price":6.0, "weight":2.5, "color":"blue", "quantity":525},
-                {"name":"Item C", "price":5.60, "weight":24.5, "color":"green", "quantity":63},
+                {"name":"ItemA", "price":2.0, "weight":32.5, "color":"red", "quantity":345},
+                {"name":"ItemB", "price":6.0, "weight":2.5, "color":"blue", "quantity":525},
+                {"name":"ItemC", "price":5.60, "weight":24.5, "color":"green", "quantity":63},
             
             ]
         session.modified = True
         return render_template('index.html', item_list = session['items'])
 
+    @app.route("/login", methods = ['GET', 'POST'])
+    def login():
+        if request.method == 'POST':
+            session['name'] = request.form['name']
+            session['password'] = request.form['password']
+            session.modified = True
+            return redirect('/')
+        return render_template('Login.html')
+
     @app.route("/add", methods = ['GET', 'POST'])
     def add():
+        if 'name' not in session.keys() or 'password' not in session.keys():
+            return redirect("/login")
         if request.method == 'POST':
             dic = {
                 "name":request.form["name"],
@@ -55,6 +67,8 @@ def create_app(test_config=None):
 
     @app.route("/delete/<itemname>")
     def delete(itemname):
+        if 'name' not in session.keys() or 'password' not in session.keys():
+            return redirect("/login")
         for i in range(len(session['items'])):
             if(session['items'][i]['name'] == itemname):
                 del session['items'][i]
@@ -66,6 +80,34 @@ def create_app(test_config=None):
     def print():        
         return render_template('Report.html', item_list = session['items'])
     
+    @app.route("/modify/<itemname>", methods = ['GET', 'POST'])
+    def details(itemname):
+        if request.method == 'POST':
+            for i in range(len(session['items'])):
+                if(session['items'][i]['name'] == itemname):
+                    dic = {
+                        "name":request.form["name"],
+                        "price":request.form["price"],
+                        "weight":request.form["weight"],
+                        "color":request.form["color"],
+                        "quantity":request.form["quantity"]
+                    }
+                    session['items'][i] = dic
+                    break;
+            session.modified = True
+            return redirect('/')
+        for i in range(len(session['items'])):
+            if(session['items'][i]['name'] == itemname):
+                return render_template('DetailsPage.html', item = session['items'][i])
+        return rediret('/')
+    
+    @app.route("/save")
+    def save():
+        if 'name' not in session.keys() or 'password' not in session.keys():
+            return redirect("/login")
+        database.save(session['name'], session['items'], session['password'])
+        return redirect("/")
+
     return app
    
 
