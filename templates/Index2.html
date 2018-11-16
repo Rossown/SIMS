@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>SIMS</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/Index.css') }}">
+</head>
+
+<body>
+	<h1>
+		SIMS (Simple Inventory Management System)
+	</h1>
+	
+	<p>Logged in as: <label>quade1m</label></p>
+	<br>
+
+	<button id="normalbutton" type="button">Print Report</button>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Price</th>
+			<th>Weight</th>
+			<th>Color</th>
+			<th>Quantity</th>
+			<th>Change Amount</th>
+			<th>Delete</th>
+		</tr>
+		<tr>
+			<td><a href="DetailsPage.html" onclick="javascript:void window.open('DetailsPage.html','1542297738836','width=700,height=400,resizable=1');return false;">Item A</a></td>
+			<td>$2.00</td>
+			<td>32.5 lbs</td>
+			<td>Red</td>
+			<td>345</td>
+			<td>_____</td>
+			<td><input type="image" src="https://openclipart.org/download/226230/trash.svg" alt="Delete" width="20px" height="25px" id="deletebutton"></td>
+		</tr>
+		<tr>
+			<td><a href="DetailsPage.html">Item B</a></td>
+			<td>$6.00</td>
+			<td>2.5 lbs</td>
+			<td>Blue</td>
+			<td>525</td>
+			<td>_____</td>
+			<td><input type="image" src="https://openclipart.org/download/226230/trash.svg" alt="Delete" width="20px" height="25px" id="deletebutton"></td>
+		</tr>
+		<tr>
+			<td><a href="DetailsPage.html">Item C</a></td>
+			<td>$5.60</td>
+			<td>24.5 lbs</td>
+			<td>Green</td>
+			<td>63</td>
+			<td>_____</td>
+			<td><input type="image" src="https://openclipart.org/download/226230/trash.svg" alt="Delete" width="20px" height="25px" id="deletebutton">
+</td>
+		</tr>
+	</table>
+	<button id="normalbutton" type="button"><a href="Form.html">Add Item</a></button>
+	<button id="normalbutton" type="button">Save</button>
+	<button id="normalbutton" type="button"><a href="Login.html">Log out</a></button>
+	<footer>
+  <p>Created by: Nathan Rossow | Caleb Trayer | Erin Day | Mikayla Quaderer</p>
+</footer>
+</body>
+
+</html>
+
+<!-- color scheme: #c8c3cc, #563f46, #8ca3a3, #484f4f -->
