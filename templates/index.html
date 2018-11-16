@@ -10,7 +10,10 @@
 	<h1>
 		SIMS (Simple Inventory Management System)
 	</h1>
-	<button id="normalbutton" type="button" onclick="location.href='/print';" >Print Report</button>
+	
+	<p>Logged in as: <label>{{name}}</label></p>
+	<button id="normalbutton" type="button" onclick="location.href='/login';">Log out</button>
+	<br>
 	<table>
 		<thead>
 			<tr>
@@ -25,20 +28,20 @@
 		<tbody>
 			{% for item in item_list %}
 			<tr>
-				<td>
-					<a href="/modify/{{item.name}}" onclick="javascript:void window.open('/modify/{{item.name}}','1542297738836','width=700,height=400,resizable=1');return false;">{{item.name}}</a>
-				</td>
+				<td><a href="/modify/{{item.id}}">{{item.name}}</a></td>
 				<td>{{item.price}}</td>
 				<td>{{item.weight}}</td>
 				<td>{{item.color}}</td>
 				<td>{{item.quantity}}</td>
-				<td><a href="/delete/{{item.name}}">Delete</a></td>
+				<td><a href="/delete/{{item.id}}"><input type="image" src="https://openclipart.org/download/226230/trash.svg" alt="Delete" width="20px" height="25px" id="deletebutton"></a></td>
 			</tr>
 			{% endfor %}
 		</tbody>
 		</tr>
 	</table>
-	<button id="normalbutton" type="button" onclick="location.href='/add';" >Add Item</button>
+	<button id="normalbutton" type="button" onclick="location.href='/add';">Add Item</button>
+	<button id="normalbutton" type="button" onclick="location.href='/save';">Save</button>
+	<button id="normalbutton" type="button" onclick="location.href='/print';">Print Report</button>
 	<footer>
 		<p>Created by: Nathan Rossow | Caleb Trayer | Erin Day | Mikayla Quaderer</p>
 	</footer>
