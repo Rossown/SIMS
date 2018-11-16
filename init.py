@@ -61,6 +61,29 @@ def create_app(test_config=None):
                 break
         session.modified = True
         return redirect('/')
+    
+    @app.route("/modify/<itemname>", methods = ['GET', 'POST'])
+    def details(itemname):
+        if request.method == 'POST':
+            for i in range(len(session['items'])):
+                if(session['items'][i]['name'] == itemname):
+                    dic = {
+                        "name":request.form["name"],
+                        "price":request.form["price"],
+                        "weight":request.form["weight"],
+                        "color":request.form["color"],
+                        "quantity":request.form["quantity"]
+                    }
+                    session['items'][i] = dic
+                    break;
+            session.modified = True
+            return redirect('/')
+        for i in range(len(session['items'])):
+            if(session['items'][i]['name'] == itemname):
+                return render_template('DetailsPage.html', item = session['items'][i])
+        return rediret('/')
+            
+
 
     
     return app

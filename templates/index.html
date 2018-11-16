@@ -26,7 +26,7 @@
 			{% for item in item_list %}
 			<tr>
 				<td>
-					<a href="/user/{{item.name}}">{{item.name}}</a>
+					<a href="/modify/{{item.name}}" onclick="javascript:void window.open('/modify/{{item.name}}','1542297738836','width=700,height=400,resizable=1');return false;">{{item.name}}</a>
 				</td>
 				<td>{{item.price}}</td>
 				<td>{{item.weight}}</td>
