@@ -75,6 +75,10 @@ def create_app(test_config=None):
                 break
         session.modified = True
         return redirect('/')
+
+    @app.route('/print')
+    def print():        
+        return render_template('Report.html', item_list = session['items'])
     
     @app.route("/modify/<itemname>", methods = ['GET', 'POST'])
     def details(itemname):
