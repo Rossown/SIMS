@@ -62,6 +62,9 @@ def create_app(test_config=None):
         session.modified = True
         return redirect('/')
 
+    @app.route('/print')
+    def print():        
+        return render_template('Report.html', item_list = session['items'])
     
     return app
    
