@@ -3,3 +3,4 @@
 #For Visual Studio Code
 .vscode/
 __pycache__
+csv/
