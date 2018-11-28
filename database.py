@@ -2,7 +2,7 @@ import os
 
 def load(filename, password):
     itemList = []
-    if not os.path.exists("csv/"+filename+".csv"):
+    if not os.path.exists("csv"):
         return False
     with open("csv/"+filename+".csv", "r") as file:
         next(file)
@@ -19,8 +19,8 @@ def load(filename, password):
     return itemList
 
 def save(filename, list, password):
-    if not os.path.exists("csv/"+filename+".csv"):
-        os.makedirs("csv/"+filename+".csv")
+    if not os.path.exists("csv"):
+        os.makedirs("csv")
     with open("csv/"+filename+".csv", "w+") as file:
         file.write(password+"\n")
         for item in list:

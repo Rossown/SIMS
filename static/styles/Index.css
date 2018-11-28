@@ -2,6 +2,10 @@ body {
 	background-color: white;	
 	color: #c8c3cc;
 	font-size: 16px;
+	margin-left: 30px;
+	background-image: url(/static/styles/background2.png);
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 h1 {
@@ -70,5 +74,14 @@ input {
 }
 
 footer {
+	color: #4C566F;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+p {
 	color: #4C566F;
 }
