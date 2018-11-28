@@ -34,7 +34,9 @@ def save(filename, list, password):
             )))
 
 def checkLogin(filename, password):
-    if not os.path.exists("csv/"+filename+".csv"):
+    if not os.path.exists("csv\\"+filename+".csv"):
+        with open("csv\\"+filename+".csv", "w") as file:
+            file.write(password)
         return True
-    with open("csv/"+filename+".csv", "r") as file:
+    with open("csv\\"+filename+".csv", "r") as file:
         return password.strip() == file.readline().strip()

@@ -39,11 +39,11 @@ def create_app(test_config=None):
             if(database.checkLogin(request.form['name'], request.form['password'])):
                 session['name'] = request.form['name']
                 session['password'] = request.form['password']
-                session['items'] = database.load(session['name'], session['password'])
-                if session['items'] == False:
-                    session['items'] = []
-                session.modified = True
-                return redirect('/')
+                data = database.load(session['name'], session['password'])
+                if(data != False):
+                    session['items'] = database.load(session['name'], session['password'])
+                    session.modified = True
+                    return redirect('/')
             return redirect('/login')
         if 'name' in session.keys():
             del session['name']
@@ -58,7 +58,7 @@ def create_app(test_config=None):
         if request.method == 'POST':
             maxId = 0
             for item in session['items']:
-                maxId = max(item.id, maxId)
+                maxId = max(item['id'], maxId)
             dic = {
                 "id":maxId+1,
                 "name":request.form["name"],
@@ -68,7 +68,6 @@ def create_app(test_config=None):
                 "quantity":request.form["quantity"],
             }
             session['items'].append(dic)
-            pprint(session['items'])
             session.modified = True
             return redirect('/')
         return render_template('Form.html')
