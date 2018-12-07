@@ -15,7 +15,7 @@ def load(filename, password):
         for line in file:
             line2 = line.split(",")
             itemList.append({
-                "id":line2[0],
+                "id":int(line2[0]),
                 "name":line2[1],
                 "price":line2[2],
                 "weight":line2[3],
