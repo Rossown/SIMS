@@ -64,7 +64,7 @@ def create_app(test_config=None): #initialize program
             #get highest id to prevent repetition
             maxId = 0
             for item in session['items']:
-                maxId = max(item['id'], maxId)
+                maxId = max(int(item['id']), maxId)
             #create item dictionary for local save
             dic = {
                 "id":maxId+1,
